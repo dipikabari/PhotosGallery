@@ -18,15 +18,20 @@ class HomeViewController: UIViewController {
         let searchInput = searchText.text
         print(searchInput)
         
-        self.performSegue(withIdentifier: "showCollectionImages", sender: nil)
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PhotosCollectionViewController") as? PhotosCollectionViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
+
+       // self.performSegue(withIdentifier: "showCollectionImages", sender: nil)
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "CandySpaceBackground.png")!)
     }
 
+    
 
 }
 

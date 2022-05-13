@@ -16,6 +16,10 @@
 		84C75A3D282D58BC00C25624 /* PhotosGalleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C75A3C282D58BC00C25624 /* PhotosGalleryTests.swift */; };
 		84C75A47282D58BC00C25624 /* PhotosGalleryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C75A46282D58BC00C25624 /* PhotosGalleryUITests.swift */; };
 		84C75A49282D58BC00C25624 /* PhotosGalleryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C75A48282D58BC00C25624 /* PhotosGalleryUITestsLaunchTests.swift */; };
+		84C75A5A282DB2DA00C25624 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C75A59282DB2DA00C25624 /* PhotosCollectionViewController.swift */; };
+		84C75A5C282DB50000C25624 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C75A5B282DB50000C25624 /* PhotoCell.swift */; };
+		84C75A5E282EE4D600C25624 /* CandySpaceBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C75A5D282EE4D600C25624 /* CandySpaceBackground.png */; };
+		84C75A65282EEC4400C25624 /* cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84C75A64282EEC4400C25624 /* cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		84C75A42282D58BC00C25624 /* PhotosGalleryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotosGalleryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C75A46282D58BC00C25624 /* PhotosGalleryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosGalleryUITests.swift; sourceTree = "<group>"; };
 		84C75A48282D58BC00C25624 /* PhotosGalleryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosGalleryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		84C75A59282DB2DA00C25624 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
+		84C75A5B282DB50000C25624 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		84C75A5D282EE4D600C25624 /* CandySpaceBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CandySpaceBackground.png; sourceTree = "<group>"; };
+		84C75A64282EEC4400C25624 /* cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,8 @@
 				84C75A25282D58B900C25624 /* AppDelegate.swift */,
 				84C75A27282D58B900C25624 /* SceneDelegate.swift */,
 				84C75A2E282D58BC00C25624 /* Assets.xcassets */,
+				84C75A64282EEC4400C25624 /* cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg */,
+				84C75A5D282EE4D600C25624 /* CandySpaceBackground.png */,
 				84C75A30282D58BC00C25624 /* LaunchScreen.storyboard */,
 				84C75A33282D58BC00C25624 /* Info.plist */,
 				84C75A55282D596900C25624 /* Model */,
@@ -141,6 +151,8 @@
 			children = (
 				84C75A2B282D58B900C25624 /* Main.storyboard */,
 				84C75A29282D58B900C25624 /* HomeViewController.swift */,
+				84C75A59282DB2DA00C25624 /* PhotosCollectionViewController.swift */,
+				84C75A5B282DB50000C25624 /* PhotoCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -265,7 +277,9 @@
 			files = (
 				84C75A32282D58BC00C25624 /* LaunchScreen.storyboard in Resources */,
 				84C75A2F282D58BC00C25624 /* Assets.xcassets in Resources */,
+				84C75A5E282EE4D600C25624 /* CandySpaceBackground.png in Resources */,
 				84C75A2D282D58B900C25624 /* Main.storyboard in Resources */,
+				84C75A65282EEC4400C25624 /* cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,8 +305,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C75A2A282D58B900C25624 /* HomeViewController.swift in Sources */,
+				84C75A5C282DB50000C25624 /* PhotoCell.swift in Sources */,
 				84C75A26282D58B900C25624 /* AppDelegate.swift in Sources */,
 				84C75A28282D58B900C25624 /* SceneDelegate.swift in Sources */,
+				84C75A5A282DB2DA00C25624 /* PhotosCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
