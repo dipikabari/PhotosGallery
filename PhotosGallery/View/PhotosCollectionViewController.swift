@@ -9,7 +9,8 @@ import UIKit
 
 
 class PhotosCollectionViewController: UICollectionViewController {
-
+    var viewModelObj: PhotosViewModel!
+    var searchText: String = ""
     private let reuseIdentifier = "myPhoto"
     
     private let sectionInsets = UIEdgeInsets(
@@ -25,7 +26,11 @@ class PhotosCollectionViewController: UICollectionViewController {
         
         self.title = "Gallery"
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+         self.clearsSelectionOnViewWillAppear = false
+        
+        DispatchQueue.main.async {
+            self.collectionView?.reloadData()
+        }
 
     }
 
@@ -42,17 +47,26 @@ class PhotosCollectionViewController: UICollectionViewController {
   
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return viewModelObj.photosCount
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? PhotoCell
     
         cell?.backgroundColor = .green
-        cell?.configureCell()
+        
+        if let myPhotos = viewModelObj?.getPhoto(atIndex: indexPath.row) {
+            cell?.configureCell(photos: myPhotos)
+        }
         return cell ?? UICollectionViewCell()
     }
 
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("User tapped item \(indexPath.row)")
+        
+    }
+    
     // MARK: UICollectionViewDelegate
 
     /*
@@ -86,3 +100,22 @@ class PhotosCollectionViewController: UICollectionViewController {
 
 }
 
+extension PhotosCollectionViewController: PhotosViewProtocol {
+    func displayError(_ message: String) {
+        DispatchQueue.main.async {
+
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let doneButton = UIAlertAction(title: "Done", style: .default, handler: nil)
+        alert.addAction(doneButton)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func refreshUI() {
+        DispatchQueue.main.async {
+            self.collectionView?.reloadData()
+        }
+        
+    }
+    
+}

@@ -9,10 +9,8 @@ import UIKit
 
 class PhotoCell: UICollectionViewCell {
 
-    
-    @IBOutlet weak var searchedPhoto: UIImageView!
-    @IBOutlet weak var photo: UIImageView!
-    
+    @IBOutlet weak var searchedPic: UIImageView!
+
     let picImageView = UIImageView(frame: CGRect(x:0, y:0, width:50, height:50))
     
     override init(frame: CGRect) {
@@ -35,25 +33,17 @@ class PhotoCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureCell(){
-    var imageUrlString = "https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_150.jpg"
+    func configureCell(photos: Photos){
+    //let imageUrlString = "https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_150.jpg"
         
+        let imageUrlString = photos.previewURL
+        
+        print("Inside Photocell :-> \(imageUrlString)")
 
+        let imageUrl:URL = URL(string: imageUrlString)!
         
-        print(imageUrlString)
-
-        var imageUrl:URL = URL(string: imageUrlString)!
-        
-        DispatchQueue.global().async { [weak self] in
-            if let imageData = try? Data(contentsOf: imageUrl) {
-                if let image = UIImage(data: imageData) {
-                    DispatchQueue.main.async {
-                        self?.picImageView.image = image
-                    }
-                }
-            }
-        }
-        
+        picImageView.loadImage(withUrl: imageUrl)
+    
     }
     
 }
