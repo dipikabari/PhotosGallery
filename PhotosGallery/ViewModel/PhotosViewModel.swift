@@ -43,9 +43,9 @@ final class PhotosViewModel {
               print("webformat url -----> \(String(describing: self?.photoArray[0].webformatURL))")
               print("largeImage url -----> \(String(describing: self?.photoArray[0].largeImageURL))")
               
-//              DispatchQueue.main.async {
-//                  self?.delegate?.refreshUI()
-//              }
+              DispatchQueue.main.async {
+                  self?.delegate?.refreshUI()
+              }
           }
   }
     

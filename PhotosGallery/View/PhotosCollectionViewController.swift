@@ -21,7 +21,8 @@ class PhotosCollectionViewController: UICollectionViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewModelObj = PhotosViewModel(delegate: self)
+        viewModelObj.fetchData(text: searchText)
         collectionView!.register(PhotoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         self.title = "Gallery"

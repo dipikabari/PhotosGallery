@@ -38,8 +38,6 @@ class PhotoCell: UICollectionViewCell {
         
         let imageUrlString = photos.previewURL
         
-        print("Inside Photocell :-> \(imageUrlString)")
-
         let imageUrl:URL = URL(string: imageUrlString)!
         
         picImageView.loadImage(withUrl: imageUrl)
