@@ -34,29 +34,18 @@ class PhotoCell: UICollectionViewCell {
     }
     
     func configureCell(photos: Photos){
-    //let imageUrlString = "https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_150.jpg"
-        
-        let imageUrlString = photos.previewURL
-        
-        let imageUrl:URL = URL(string: imageUrlString)!
-        
-        picImageView.loadImage(withUrl: imageUrl)
-    
+        setImageView(imageURL: photos.previewURL)
     }
     
+    private func setImageView(imageURL:String) {
+        
+        ImageDownloader.shared.getImage(url: imageURL) { [weak self] data in
+            DispatchQueue.main.async {
+                self?.picImageView.image = UIImage(data: data)
+                //self?.picImageView.contentMode = UIView.ContentMode.scaleAspectFit
+                self?.addSubview(self?.picImageView ?? UIImageView())
+            }
+        }
+    }
 }
 
-/**Display the image using url**/
-extension UIImageView {
-    func loadImage(withUrl url: URL) {
-           DispatchQueue.global().async { [weak self] in
-               if let imageData = try? Data(contentsOf: url) {
-                   if let image = UIImage(data: imageData) {
-                       DispatchQueue.main.async {
-                           self?.image = image
-                       }
-                   }
-               }
-           }
-       }
-}
