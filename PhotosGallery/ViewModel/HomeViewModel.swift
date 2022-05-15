@@ -16,15 +16,11 @@ class HomeViewModel {
     init() {}
     
     internal func validateSearchUrl(searchText: String?) -> String? {
-       // print(searchText?.containsSpecialCharacter)
-       // guard let isValid = searchText?.containsSpecialCharacter else { return "" }
-        
         if searchText?.containsSpecialCharacter == true {
-            return "Oops!Invalid characters, Please try again!"
+            return "Oops! Invalid characters, Please try again!"
         }else {
             return nil
         }
-        
     }
 }
 

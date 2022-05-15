@@ -13,7 +13,7 @@ class PhotosGalleryTests: XCTestCase {
     var viewModel : PhotosViewModel!
     
     override func setUpWithError() throws {
-        let viewController = HomeViewController()
+        let viewController = PhotosCollectionViewController()
         let mockNetworkManager = MockNetworkManager()
         
         viewModel = PhotosViewModel(delegate: viewController, networkManager: mockNetworkManager)
