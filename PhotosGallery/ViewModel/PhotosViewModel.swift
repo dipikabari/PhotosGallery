@@ -21,6 +21,10 @@ final class PhotosViewModel {
         return photoArray[atIndex]
     }
     
+    func getLargeImageUrl(atIndex: Int) -> String {
+        return photoArray[atIndex].largeImageURL
+    }
+    
     init(delegate: PhotosViewProtocol, networkManager:Networkable = NetworkManager()){
         self.delegate = delegate
         self.networkManager = networkManager

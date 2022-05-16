@@ -83,42 +83,90 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7lu-2D-MYE">
-                            <size key="itemSize" width="130" height="130"/>
-                            <size key="headerReferenceSize" width="5" height="5"/>
+                            <size key="itemSize" width="130" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myPhoto" id="5sS-pD-wv9" customClass="PhotoCell" customModule="PhotosGallery" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="5" width="130" height="130"/>
+                                <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tgJ-vg-BTB" customClass="PhotoCell" customModule="PhotosGallery" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z63-mA-uTs">
-                                            <rect key="frame" x="8" y="0.0" width="130" height="130"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z63-mA-uTs">
+                                            <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="Z63-mA-uTs" firstAttribute="top" secondItem="tgJ-vg-BTB" secondAttribute="top" id="6An-pZ-1ZK"/>
+                                        <constraint firstItem="Z63-mA-uTs" firstAttribute="centerY" secondItem="tgJ-vg-BTB" secondAttribute="centerY" id="7mL-lb-8e2"/>
+                                        <constraint firstItem="Z63-mA-uTs" firstAttribute="leading" secondItem="tgJ-vg-BTB" secondAttribute="leading" id="S4e-UT-nhd"/>
+                                        <constraint firstAttribute="trailing" secondItem="Z63-mA-uTs" secondAttribute="trailing" id="d0a-TZ-zdw"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="130" height="130"/>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="myPhoto" id="08n-IM-5vo">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="5"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="DTb-sk-5sy" id="hw6-Hb-zxl"/>
                             <outlet property="delegate" destination="DTb-sk-5sy" id="S3Y-uY-88d"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <segue destination="eWx-Xx-qVO" kind="presentation" identifier="showDetail" id="tSc-Ah-Grt"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6F8-Ii-vhC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1705.7971014492755" y="123.88392857142857"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="aOs-qr-McP">
+            <objects>
+                <viewController id="eWx-Xx-qVO" customClass="PhotoDetailViewController" customModule="PhotosGallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P6r-my-jpk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xVB-SD-5I1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjT-Tv-60q">
+                                <rect key="frame" x="354" y="54" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="okP-q1-MXo"/>
+                                    <constraint firstAttribute="width" constant="50" id="u7z-mc-LhW"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark.rectangle.fill" catalog="system" title=""/>
+                                <connections>
+                                    <segue destination="r00-Ch-jud" kind="unwind" unwindAction="unwindToMainWithSegue:" id="Mq6-p3-yRw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dz0-4f-xTF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xVB-SD-5I1" firstAttribute="trailing" secondItem="dz0-4f-xTF" secondAttribute="trailing" id="B06-90-mIr"/>
+                            <constraint firstAttribute="bottom" secondItem="xVB-SD-5I1" secondAttribute="bottom" id="QEv-DK-0Xh"/>
+                            <constraint firstItem="xVB-SD-5I1" firstAttribute="leading" secondItem="dz0-4f-xTF" secondAttribute="leading" id="UE9-Iz-Yvo"/>
+                            <constraint firstItem="dz0-4f-xTF" firstAttribute="trailing" secondItem="bjT-Tv-60q" secondAttribute="trailing" constant="10" id="XCc-Vn-PXu"/>
+                            <constraint firstItem="xVB-SD-5I1" firstAttribute="top" secondItem="P6r-my-jpk" secondAttribute="top" id="odM-e2-qM9"/>
+                            <constraint firstItem="bjT-Tv-60q" firstAttribute="top" secondItem="dz0-4f-xTF" secondAttribute="top" constant="10" id="qEY-L9-28c"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoLargeImageView" destination="xVB-SD-5I1" id="zJp-ph-ScN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CHz-nu-MRS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="r00-Ch-jud" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2460.8695652173915" y="119.86607142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1Jw-6y-Tt4">
@@ -141,6 +189,7 @@
     </scenes>
     <resources>
         <image name="cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg" width="260" height="280"/>
+        <image name="xmark.rectangle.fill" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -17,7 +17,7 @@ class PhotoCell: UICollectionViewCell {
         super.init(frame: frame)
 
         picImageView.translatesAutoresizingMaskIntoConstraints = false
-            self.contentView.addSubview(picImageView)
+        self.contentView.addSubview(picImageView)
             NSLayoutConstraint.activate([
                 picImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
                 picImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
@@ -32,6 +32,7 @@ class PhotoCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     func configureCell(photos: Photos){
         setImageView(imageURL: photos.previewURL)

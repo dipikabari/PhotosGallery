@@ -11,6 +11,8 @@ import UIKit
 class PhotosCollectionViewController: UICollectionViewController {
     var viewModelObj: PhotosViewModel!
     var searchText: String = ""
+    private let spacing:CGFloat = 16.0
+
     private let reuseIdentifier = "myPhoto"
     
     private let sectionInsets = UIEdgeInsets(
@@ -19,15 +21,23 @@ class PhotosCollectionViewController: UICollectionViewController {
       bottom: 50.0,
       right: 20.0)
  
+    @IBAction func unwindToMain(segue: UIStoryboardSegue){
+            
+        }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModelObj = PhotosViewModel(delegate: self)
         viewModelObj.fetchData(text: searchText)
+        
+        
         collectionView!.register(PhotoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         self.title = "Gallery"
         // Uncomment the following line to preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false
+        
+        
         
         DispatchQueue.main.async {
             self.collectionView?.reloadData()
@@ -35,6 +45,15 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "showDetail" {
+                if let indexPaths = collectionView.indexPathsForSelectedItems{
+                    let destinationController = segue.destination as! PhotoDetailViewController
+                    destinationController.imageURL = viewModelObj.getLargeImageUrl(atIndex: indexPaths[0].row)
+                    collectionView.deselectItem(at: indexPaths[0], animated: false)
+                }
+            }
+        }
     /*
     // MARK: - Navigation
 
@@ -46,9 +65,10 @@ class PhotosCollectionViewController: UICollectionViewController {
     */
 
   
-
+   
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModelObj.photosCount
+        
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -65,41 +85,14 @@ class PhotosCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("User tapped item \(indexPath.row)")
-        
+        performSegue(withIdentifier: "showDetail", sender: nil)
     }
     
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
-    }
-    */
 
 }
+
+
 
 extension PhotosCollectionViewController: PhotosViewProtocol {
     func displayError(_ message: String) {
