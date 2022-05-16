@@ -24,15 +24,18 @@ class PhotosCollectionViewController: UICollectionViewController {
         photosViewModel = PhotosViewModel(delegate: self)
         photosViewModel.fetchData(text: searchText)
         
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical //.horizontal
+        layout.minimumLineSpacing = 5
+        layout.minimumInteritemSpacing = 5
+        collectionView.setCollectionViewLayout(layout, animated: true)
+        
         collectionView!.register(PhotoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         self.title = "Gallery"
         // Uncomment the following line to preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false
-        
-        DispatchQueue.main.async {
-            self.collectionView?.reloadData()
-        }
+    
 
     }
     
@@ -69,6 +72,18 @@ class PhotosCollectionViewController: UICollectionViewController {
             performSegue(withIdentifier: "showDetail", sender: nil)
     }
 
+}
+
+extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 1.0, left: 1.0, bottom: 1.0, right: 1.0)//here your custom value for spacing
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let layout = collectionViewLayout as! UICollectionViewFlowLayout
+        let widthPerItem = collectionView.frame.width / 2 - layout.minimumInteritemSpacing
+        return CGSize(width:widthPerItem, height:110)
+    }
 }
 
 extension PhotosCollectionViewController: PhotosViewProtocol {
