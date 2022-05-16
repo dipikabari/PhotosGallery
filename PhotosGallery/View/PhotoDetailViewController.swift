@@ -20,8 +20,6 @@ class PhotoDetailViewController: UIViewController {
         ImageDownloader.shared.getImage(url: imageURL) { [weak self] data in
             DispatchQueue.main.async {
                 self?.photoLargeImageView.image = UIImage(data: data)
-                //self?.picImageView.contentMode = UIView.ContentMode.scaleAspectFit
-               //self?.addSubview(self?.photoLargeImageView ?? UIImageView())
             }
         }
 

@@ -17,14 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for Photos" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54d-0Z-Jah">
-                                <rect key="frame" x="43" y="339" width="151.5" height="23"/>
-                                <color key="tintColor" systemColor="tintColor"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="19"/>
-                                <color key="textColor" systemColor="systemPinkColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Flowers" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V6f-cD-0lD">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search photos" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V6f-cD-0lD">
                                 <rect key="frame" x="25" y="383" width="364" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -42,30 +35,20 @@
                                     <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0PT-Ws-zjZ"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="TJr-Or-OVn">
-                                <rect key="frame" x="197" y="165" width="192" height="219"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vcQ-0e-Thn" secondAttribute="bottom" constant="398" id="8vq-oo-d0m"/>
                             <constraint firstItem="vcQ-0e-Thn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="125" id="AvK-KB-lMJ"/>
-                            <constraint firstItem="TJr-Or-OVn" firstAttribute="leading" secondItem="54d-0Z-Jah" secondAttribute="trailing" constant="2.5" id="CLj-Lf-RK2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V6f-cD-0lD" secondAttribute="trailing" constant="25" id="In8-fE-BNd"/>
-                            <constraint firstItem="V6f-cD-0lD" firstAttribute="top" secondItem="54d-0Z-Jah" secondAttribute="bottom" constant="21" id="IxU-xS-m92"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vcQ-0e-Thn" secondAttribute="trailing" constant="125" id="TSt-dC-CT3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TJr-Or-OVn" secondAttribute="trailing" constant="25" id="ake-YY-kWG"/>
                             <constraint firstItem="V6f-cD-0lD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="ax3-Xa-AXr"/>
                             <constraint firstItem="vcQ-0e-Thn" firstAttribute="top" secondItem="V6f-cD-0lD" secondAttribute="bottom" constant="16" id="bM5-e7-b8J"/>
-                            <constraint firstItem="TJr-Or-OVn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="77" id="bQT-GX-sgI"/>
-                            <constraint firstItem="54d-0Z-Jah" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="tUD-hK-UZT"/>
-                            <constraint firstItem="vcQ-0e-Thn" firstAttribute="top" secondItem="TJr-Or-OVn" secondAttribute="bottom" constant="49" id="xi4-L9-Dqr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2pS-d5-smN"/>
                     <connections>
-                        <outlet property="label" destination="54d-0Z-Jah" id="Dtj-Xp-bjq"/>
                         <outlet property="searchText" destination="V6f-cD-0lD" id="pde-IZ-Frp"/>
                         <segue destination="DTb-sk-5sy" kind="showDetail" identifier="showCollectionImages" id="eEY-z0-7ac"/>
                     </connections>
@@ -188,19 +171,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg" width="260" height="280"/>
         <image name="xmark.rectangle.fill" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

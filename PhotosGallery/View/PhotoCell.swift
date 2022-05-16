@@ -24,8 +24,6 @@ class PhotoCell: UICollectionViewCell {
                 picImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
                 picImageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             ])
-           
-            self.contentView.backgroundColor = .lightGray
             
         }
     
@@ -43,7 +41,6 @@ class PhotoCell: UICollectionViewCell {
         ImageDownloader.shared.getImage(url: imageURL) { [weak self] data in
             DispatchQueue.main.async {
                 self?.picImageView.image = UIImage(data: data)
-                //self?.picImageView.contentMode = UIView.ContentMode.scaleAspectFit
                 self?.addSubview(self?.picImageView ?? UIImageView())
             }
         }

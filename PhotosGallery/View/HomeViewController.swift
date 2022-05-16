@@ -9,24 +9,22 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var viewModelObj: HomeViewModel!
+    var homeViewModel: HomeViewModel!
     
-    @IBOutlet private weak var label: UILabel!
     @IBOutlet private weak var searchText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "CandySpaceBackground.png")!)
         
-        viewModelObj = HomeViewModel()
+        homeViewModel = HomeViewModel()
     }
     
     @IBAction private func searchButton(_ sender: Any) {
         print("Search button")
         
         //
-        guard let message = viewModelObj.validateSearchUrl(searchText: searchText.text ?? "")
+        guard let message = homeViewModel.validateSearchUrl(searchText: searchText.text ?? "")
         else {
             navigateToPhotosScreen()
             return
@@ -38,11 +36,11 @@ class HomeViewController: UIViewController {
     }
         func navigateToPhotosScreen()  {
             let photosVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PhotosCollectionViewController") as? PhotosCollectionViewController
-          //  photosVC?.viewModelObj = viewModelObj
+          
             photosVC?.searchText = searchText.text ?? ""
             self.navigationController?.pushViewController(photosVC!, animated: true)
 
-           // self.performSegue(withIdentifier: "showCollectionImages", sender: nil)
+
         }
         
     

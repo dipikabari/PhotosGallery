@@ -68,15 +68,4 @@ class NetworkManager: Networkable {
          return url
      }
     
-    func getImageData(from url: String, completion: @escaping (Data?) -> Void) {
-            guard let url = URL(string: url) else { completion(nil)
-                return
-            }
-            
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                completion(data)
-            }
-            .resume()
-    }
-
 }

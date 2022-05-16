@@ -9,10 +9,8 @@ import UIKit
 
 
 class PhotosCollectionViewController: UICollectionViewController {
-    var viewModelObj: PhotosViewModel!
+    var photosViewModel: PhotosViewModel!
     var searchText: String = ""
-    private let spacing:CGFloat = 16.0
-
     private let reuseIdentifier = "myPhoto"
     
     private let sectionInsets = UIEdgeInsets(
@@ -21,15 +19,10 @@ class PhotosCollectionViewController: UICollectionViewController {
       bottom: 50.0,
       right: 20.0)
  
-    @IBAction func unwindToMain(segue: UIStoryboardSegue){
-            
-        }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModelObj = PhotosViewModel(delegate: self)
-        viewModelObj.fetchData(text: searchText)
-        
+        photosViewModel = PhotosViewModel(delegate: self)
+        photosViewModel.fetchData(text: searchText)
         
         collectionView!.register(PhotoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
@@ -37,62 +30,46 @@ class PhotosCollectionViewController: UICollectionViewController {
         // Uncomment the following line to preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false
         
-        
-        
         DispatchQueue.main.async {
             self.collectionView?.reloadData()
         }
 
     }
+    
+    /* Below IBAction is added to bring back navigation from PhotoDetailViewController to  PhotosCollectionViewController on 'x' button click */
+    @IBAction func unwindToMain(segue: UIStoryboardSegue){
+            
+    }
+
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "showDetail" {
                 if let indexPaths = collectionView.indexPathsForSelectedItems{
                     let destinationController = segue.destination as! PhotoDetailViewController
-                    destinationController.imageURL = viewModelObj.getLargeImageUrl(atIndex: indexPaths[0].row)
+                    destinationController.imageURL = photosViewModel.getLargeImageUrl(atIndex: indexPaths[0].row)
                     collectionView.deselectItem(at: indexPaths[0], animated: false)
                 }
             }
         }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-  
    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModelObj.photosCount
-        
+        return photosViewModel.photosCount
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? PhotoCell
     
-        cell?.backgroundColor = .green
-        
-        if let myPhotos = viewModelObj?.getPhoto(atIndex: indexPath.row) {
+        if let myPhotos = photosViewModel?.getPhoto(atIndex: indexPath.row) {
             cell?.configureCell(photos: myPhotos)
         }
         return cell ?? UICollectionViewCell()
     }
-
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("User tapped item \(indexPath.row)")
-        performSegue(withIdentifier: "showDetail", sender: nil)
+            performSegue(withIdentifier: "showDetail", sender: nil)
     }
-    
-    
 
 }
-
-
 
 extension PhotosCollectionViewController: PhotosViewProtocol {
     func displayError(_ message: String) {

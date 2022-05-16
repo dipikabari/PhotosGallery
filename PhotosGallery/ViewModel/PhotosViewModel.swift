@@ -42,11 +42,6 @@ final class PhotosViewModel {
 
               self?.photoArray = response.hits
               
-              print(self?.photoArray.count ?? 0)
-              print("preview url---->  \(String(describing: self?.photoArray[0].previewURL))")
-              print("webformat url -----> \(String(describing: self?.photoArray[0].webformatURL))")
-              print("largeImage url -----> \(String(describing: self?.photoArray[0].largeImageURL))")
-              
               DispatchQueue.main.async {
                   self?.delegate?.refreshUI()
               }
