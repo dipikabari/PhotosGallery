@@ -15,33 +15,24 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "CandySpaceBackground.png")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "CandySpaceBackground.png") ?? UIImage())
         
         homeViewModel = HomeViewModel()
     }
     
     @IBAction private func searchButton(_ sender: Any) {
-        print("Search button")
-        
-        //
-        guard let message = homeViewModel.validateSearchUrl(searchText: searchText.text ?? "")
+        guard let message = homeViewModel.validateSearchUrl(searchText: searchText.text)
         else {
             navigateToPhotosScreen()
             return
-            
         }
-        print(message)
-        Utility.shared.showAlert(self, "Alert!", message)
-        
+        Utility.shared.showAlert(self, Constants.alert, message)
     }
-        func navigateToPhotosScreen()  {
-            let photosVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PhotosCollectionViewController") as? PhotosCollectionViewController
-          
-            photosVC?.searchText = searchText.text ?? ""
-            self.navigationController?.pushViewController(photosVC!, animated: true)
-
-
-        }
-        
     
+    func navigateToPhotosScreen()  {
+        if let photosVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "PhotosCollectionViewController") as? PhotosCollectionViewController {
+        photosVC.searchText = searchText.text ?? ""
+        self.navigationController?.pushViewController(photosVC, animated: true)
+        }
+     }
 }

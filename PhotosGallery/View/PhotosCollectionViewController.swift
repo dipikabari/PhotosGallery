@@ -23,20 +23,10 @@ class PhotosCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         photosViewModel = PhotosViewModel(delegate: self)
         photosViewModel.fetchData(text: searchText)
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical //.horizontal
-        layout.minimumLineSpacing = 5
-        layout.minimumInteritemSpacing = 5
-        collectionView.setCollectionViewLayout(layout, animated: true)
-        
+       
         collectionView!.register(PhotoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         self.title = "Gallery"
-        // Uncomment the following line to preserve selection between presentations
-         self.clearsSelectionOnViewWillAppear = false
-    
-
     }
     
     /* Below IBAction is added to bring back navigation from PhotoDetailViewController to  PhotosCollectionViewController on 'x' button click */
@@ -44,8 +34,7 @@ class PhotosCollectionViewController: UICollectionViewController {
             
     }
 
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "showDetail" {
                 if let indexPaths = collectionView.indexPathsForSelectedItems{
                     let destinationController = segue.destination as! PhotoDetailViewController
@@ -83,17 +72,15 @@ extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         let widthPerItem = collectionView.frame.width / 2 - layout.minimumInteritemSpacing
         return CGSize(width:widthPerItem, height:110)
+
     }
 }
 
 extension PhotosCollectionViewController: PhotosViewProtocol {
+    
     func displayError(_ message: String) {
         DispatchQueue.main.async {
-
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let doneButton = UIAlertAction(title: "Done", style: .default, handler: nil)
-        alert.addAction(doneButton)
-            self.present(alert, animated: true, completion: nil)
+            Utility.shared.showAlert(self, Constants.alert, message)
         }
     }
     
@@ -101,7 +88,6 @@ extension PhotosCollectionViewController: PhotosViewProtocol {
         DispatchQueue.main.async {
             self.collectionView?.reloadData()
         }
-        
     }
     
 }

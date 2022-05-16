@@ -17,17 +17,17 @@ final class PhotosViewModel {
         return photoArray.count
     }
     
+    init(delegate: PhotosViewProtocol, networkManager:Networkable = NetworkManager()){
+        self.delegate = delegate
+        self.networkManager = networkManager
+    }
+    
     func getPhoto(atIndex: Int) -> Photos {
         return photoArray[atIndex]
     }
     
     func getLargeImageUrl(atIndex: Int) -> String {
         return photoArray[atIndex].largeImageURL
-    }
-    
-    init(delegate: PhotosViewProtocol, networkManager:Networkable = NetworkManager()){
-        self.delegate = delegate
-        self.networkManager = networkManager
     }
 
     /* get response from api into your defined array*/
@@ -36,7 +36,7 @@ final class PhotosViewModel {
           self.networkManager.fetchData(text: text) { [weak self] response, error in
               
               guard let response = response , error == nil else {
-                  self?.delegate?.displayError("Failed to Search, Pls try again!")
+                  self?.delegate?.displayError(Constants.failedResponseMessage)
                   return
               }
 
@@ -46,6 +46,6 @@ final class PhotosViewModel {
                   self?.delegate?.refreshUI()
               }
           }
-  }
+       }
     
 }

@@ -41,13 +41,7 @@ class NetworkManager: Networkable {
             .resume()
         }
     
-    /* construct the url  */
-    /* An example request might look like:
-     https://pixabay.com/
-     api/?key=13197033-03eec42c293d2323112b4cca6
-     &q=yellow+flowers
-     &image_type=photo
-    */
+    
      func fetchUrlforSearch(searchText: String) -> URL {
          var components = URLComponents()
          
@@ -64,8 +58,7 @@ class NetworkManager: Networkable {
          guard let url = components.url else {
              preconditionFailure("Invalid URL string")
          }
-         print(url)
-         return url
+        return url
      }
     
 }

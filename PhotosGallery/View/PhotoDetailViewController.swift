@@ -16,7 +16,6 @@ class PhotoDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    print("Large image view url -> \(imageURL)")
         ImageDownloader.shared.getImage(url: imageURL) { [weak self] data in
             DispatchQueue.main.async {
                 self?.photoLargeImageView.image = UIImage(data: data)

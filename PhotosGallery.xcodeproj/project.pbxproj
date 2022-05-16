@@ -24,7 +24,6 @@
 		84C75A5A282DB2DA00C25624 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C75A59282DB2DA00C25624 /* PhotosCollectionViewController.swift */; };
 		84C75A5C282DB50000C25624 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C75A5B282DB50000C25624 /* PhotoCell.swift */; };
 		84C75A5E282EE4D600C25624 /* CandySpaceBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C75A5D282EE4D600C25624 /* CandySpaceBackground.png */; };
-		84C75A65282EEC4400C25624 /* cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84C75A64282EEC4400C25624 /* cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg */; };
 		84C75A67282F129E00C25624 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C75A66282F129D00C25624 /* NetworkManager.swift */; };
 		84C75A69282F12D100C25624 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C75A68282F12D100C25624 /* Endpoints.swift */; };
 		84C75A6B282F133400C25624 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C75A6A282F133400C25624 /* ServiceError.swift */; };
@@ -34,6 +33,7 @@
 		84C75A7A2830649500C25624 /* photo_search.json in Resources */ = {isa = PBXBuildFile; fileRef = 84C75A792830649500C25624 /* photo_search.json */; };
 		84C75A7C283065E900C25624 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C75A7B283065E900C25624 /* MockNetworkManager.swift */; };
 		84F1BBCF283265FD00DAECDA /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F1BBCE283265FD00DAECDA /* PhotoDetailViewController.swift */; };
+		84F1BBD22832AEB800DAECDA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F1BBD12832AEB800DAECDA /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +75,6 @@
 		84C75A59282DB2DA00C25624 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		84C75A5B282DB50000C25624 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		84C75A5D282EE4D600C25624 /* CandySpaceBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CandySpaceBackground.png; sourceTree = "<group>"; };
-		84C75A64282EEC4400C25624 /* cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg"; sourceTree = "<group>"; };
 		84C75A66282F129D00C25624 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		84C75A68282F12D100C25624 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		84C75A6A282F133400C25624 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
@@ -85,6 +84,7 @@
 		84C75A792830649500C25624 /* photo_search.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = photo_search.json; sourceTree = "<group>"; };
 		84C75A7B283065E900C25624 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		84F1BBCE283265FD00DAECDA /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		84F1BBD12832AEB800DAECDA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				8496E3B42831BA4100DAFD35 /* Utility.swift */,
+				84F1BBD12832AEB800DAECDA /* Constants.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -155,7 +156,6 @@
 				84C75A25282D58B900C25624 /* AppDelegate.swift */,
 				84C75A27282D58B900C25624 /* SceneDelegate.swift */,
 				84C75A2E282D58BC00C25624 /* Assets.xcassets */,
-				84C75A64282EEC4400C25624 /* cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg */,
 				84C75A5D282EE4D600C25624 /* CandySpaceBackground.png */,
 				84C75A30282D58BC00C25624 /* LaunchScreen.storyboard */,
 				84C75A33282D58BC00C25624 /* Info.plist */,
@@ -345,7 +345,6 @@
 				84C75A2F282D58BC00C25624 /* Assets.xcassets in Resources */,
 				84C75A5E282EE4D600C25624 /* CandySpaceBackground.png in Resources */,
 				84C75A2D282D58B900C25624 /* Main.storyboard in Resources */,
-				84C75A65282EEC4400C25624 /* cute-squirrel-use-magnifying-glass-260nw-1451889236.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C75A6B282F133400C25624 /* ServiceError.swift in Sources */,
+				84F1BBD22832AEB800DAECDA /* Constants.swift in Sources */,
 				8496E3BA2831BED300DAFD35 /* ImageDownloader.swift in Sources */,
 				84C75A67282F129E00C25624 /* NetworkManager.swift in Sources */,
 				84C75A71282F143900C25624 /* PhotosViewModel.swift in Sources */,

@@ -13,11 +13,10 @@ protocol HomeDelegate {
 }
 
 class HomeViewModel {
-    init() {}
     
-    internal func validateSearchUrl(searchText: String?) -> String? {
+    func validateSearchUrl(searchText: String?) -> String? {
         if searchText?.containsSpecialCharacter == true {
-            return "Oops! Invalid characters, Please try again!"
+            return  Constants.inValidTextMessage
         }else {
             return nil
         }
